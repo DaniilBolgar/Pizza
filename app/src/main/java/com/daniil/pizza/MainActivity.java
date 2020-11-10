@@ -40,13 +40,21 @@ public class MainActivity extends AppCompatActivity {
 
         authenticator = FirebaseAuth.getInstance();
 
+        signinbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("firebaseauth","test");
+            }
+        });
+
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(validate(email.getText().toString())){
                     Log.d("firebaseauth","test");
                     if(vpassword.getText().toString().equals(password.getText().toString())){
-                        authenticator.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener((Activity) getApplicationContext(), new OnCompleteListener<AuthResult>() {
+                        authenticator.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
@@ -56,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                                     Log.d("firebaseauth","oops");
                                     // If sign in fails, display a message to the user.
                                     Log.w("firebaseauth", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                    Toast.makeText(getApplicationContext(), "Oops."  + task.getException(),
                                             Toast.LENGTH_SHORT).show();
 
                                 }
@@ -73,12 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        signupbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
     }
     private boolean validate(String email){
