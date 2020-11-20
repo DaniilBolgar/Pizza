@@ -197,6 +197,8 @@ public class LoginScreen extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString("UID",UID).apply();
                     editor.putBoolean("isLoggedIn",true).apply();
+                    Intent intent = new Intent(getApplicationContext(), MainScreen.class);
+                    startActivity(intent);
                 } else {
                     Log.w("firebaseauth", "createUserWithGoogleFailed", task.getException());
                     Toast.makeText(getApplicationContext(), task.getException().toString(),
