@@ -25,7 +25,7 @@ public class MainScreen extends AppCompatActivity {
     private PizzAdapter pizzAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {                                        //find 3 images for pizzas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         recyclerView = findViewById(R.id.recyclerView);
