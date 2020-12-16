@@ -11,12 +11,14 @@ public class PizzaModel {
     public String sauce;
     public String price;
     public List<String> toppings;
+    public String pizzaId;
+    public String description;
 
     public PizzaModel(){
 
     }
 
-    public PizzaModel(String imageUrl, String name, String size, String crust, String sauce, String price, List<String> toppings) {
+    public PizzaModel(String imageUrl, String name, String size, String crust, String sauce, String price, List<String> toppings, String pizzaId, String description) {
         this.imgurl = imageUrl;
         this.pizzaname = name;
         this.size = size;
@@ -24,6 +26,8 @@ public class PizzaModel {
         this.sauce = sauce;
         this.price = price;
         this.toppings = toppings;
+        this.pizzaId = pizzaId;
+        this.description = description;
     }
 
     public String getImageUrl() {
@@ -80,5 +84,21 @@ public class PizzaModel {
 
     public void setToppings(List<String> toppings) {
         this.toppings = toppings;
+    }
+
+    public String getPizzaId() {
+        return pizzaId;
+    }
+
+    public void setPizzaId(String pizzaId) {
+        this.pizzaId = pizzaId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
